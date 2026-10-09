@@ -1,0 +1,17 @@
+Item,Value
+Source file,PJME_hourly.csv extracted from the user-provided archive
+Raw rows,145366
+Duplicate timestamp rows (rows belonging to duplicated timestamps),8
+Missing hourly timestamps after reindexing,30
+Daily observations after preparation,6059
+Historical period,2002-01-01 to 2018-08-03
+Target,PJME_MW; electricity demand in megawatts
+Daily aggregation,Mean of hourly demand values per calendar day
+Missing-value treatment,Time interpolation for missing daily observations
+Validation split,Last 365 days held out chronologically
+Model,Holt-Winters ETS: additive trend and weekly (7-day) seasonality
+Benchmark,Weekly seasonal-naive forecast
+Forecast horizon,90 days
+Prediction interval,Approximate 90% empirical residual bootstrap from validation errors
+Scenario assumption,Illustrative low/high cases = base forecast -5% / +5%
+Data limitation,Historical dataset ends 2018-08-03
